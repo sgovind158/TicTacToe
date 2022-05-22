@@ -4,8 +4,8 @@ import SquareComponent from './component/SquareComponent';
 import React ,{useState,useEffect} from 'react';
 
 const intialState = ["","","","","","","","","",]
- let win = "my name is govind"
-let winner1 ;
+ 
+
 function App() {
   const [gameState,setGameState] = useState(intialState)
   const [xChance,setXChance] = useState(false)
@@ -26,12 +26,18 @@ useEffect(()=>{
   if(winner){
     if(winner){
      
-      // alert(`Tada ! ${winner} has won this tic toe game`)
-       winner1 = `Tada ! ${winner} has won this tic toe game`
-       console.log(winner1)
-      // setGameState(intialState)
+     
+     
+     
 
       setWinState(`Tada ! ${winner} has won this tic toe game`)
+
+      setTimeout(()=>{
+         alert(`Tada ! ${winner} has won this tic toe game`)
+        setGameState(intialState)
+
+      },3000)
+      
     }
   }
 },[gameState])
@@ -91,7 +97,7 @@ const checkWinner = ()=>{
 
   <button className='clear' onClick={()=>setGameState(intialState) } >Clear game</button>
 
-<p >  {winState} </p>
+<h1>  {winState} </h1>
     </div>
   );
 }
